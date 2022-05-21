@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My first paragraph.</p>
+
+<script type="text/javascript">
+
+function fill_form_elements(json){
+		console.log(json);
+		const textId = document.getElementById("id");
+		const textTitle = document.getElementById("title");
+		textId.value = json.id;
+		textTitle.value = json.title;
+	}
+
+function getValues(){
+	const idToGet = document.getElementById("idToGet").value;
+	var url = 'https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b332eb5b420f02195abf102c201b4ff4';
+	fetch(url)
+  .then((response) => response.json())
+  .then((json) => fill_form_elements(json));
+	
+}
+
+
+</script>
+
+<form>
+Posts:<br>
+Isbn: <input type="text" id="isbnToGet" name="isbnToGet"><br><br>
+<input type="button" value="Get Values" onclick="getValues()">
+
+ <label for="fname">Posts:</label><br>
+ Id: <input type="text" id="isbnToGet" name="isbnToGet"><br><br>
+ Title: <input type="text" id="title" name="title"><br><br>
+  <input type="submit" value="Update">
+</form>
+
+</body>
+</html>
+
